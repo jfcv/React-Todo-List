@@ -11,7 +11,7 @@ export class App extends Component {
         {
             id: 1,
             title: 'Take out the trash',
-            completed: true
+            completed: false
         },
         {
             id: 2,
@@ -26,10 +26,21 @@ export class App extends Component {
     ]
   }
 
+  markComplete = (id) => {
+    //iterating through the todos array (comparing each todo object with the current object)
+    this.setState({todos: this.state.todos.map(todo => {
+      if(todo.id === id) {
+        todo.completed = !todo.completed;
+      }
+
+      return todo;
+    })});
+  }
+
   render() {
     return (
       <div>
-        <Todos todos={this.state.todos} />
+        <Todos todos={this.state.todos} markComplete={this.markComplete} />
       </div>
     )
   }
