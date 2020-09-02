@@ -5,6 +5,7 @@ import Todos from './components/Todos'
 
 export class App extends Component {
 
+  //state variable
   state = {
     todos: [
         {
@@ -26,10 +27,9 @@ export class App extends Component {
   }
 
   render() {
-    console.log(this.state.todos);
     return (
       <div>
-        <Todos />
+        <Todos todos={this.state.todos} />
       </div>
     )
   }
