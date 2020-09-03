@@ -7,6 +7,8 @@ import About from './components/pages/About'
 import Todos from './components/Todos'
 import AddTodo from './components/AddTodo'
 
+import axios from 'axios'
+
 
 export class App extends Component {
 
@@ -14,6 +16,12 @@ export class App extends Component {
   state = {
     todos: []
   }
+
+  componentDidMount() {
+    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=5')
+      .then(res => this.setState({todos: res.data}))
+      .catch(err => console.log(err))
+  } 
 
   markComplete = (id) => {
     //iterating through the todos array (comparing each todo object with the current object)
