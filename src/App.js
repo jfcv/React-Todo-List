@@ -12,23 +12,7 @@ export class App extends Component {
 
   //state variable
   state = {
-    todos: [
-        {
-            id: 1,
-            title: 'Jump off my airplane',
-            completed: false
-        },
-        {
-            id: 2,
-            title: "Mixing on Tokyo's tallest skyrocker",
-            completed: false
-        },
-        {
-            id: 3,
-            title: "Buy Mauricio's Island",
-            completed: false
-        },
-    ]
+    todos: []
   }
 
   markComplete = (id) => {
