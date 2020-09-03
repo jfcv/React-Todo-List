@@ -8,6 +8,7 @@ import Todos from './components/Todos'
 import AddTodo from './components/AddTodo'
 
 import axios from 'axios'
+import { v4 as uuidv4 } from 'uuid'
 
 
 export class App extends Component {
@@ -42,13 +43,16 @@ export class App extends Component {
 
   addTodo = (title) => {
 
-    axios.post('https://jsonplaceholder.typicode.com/todos?_limit=5',{
+    axios.post('https://jsonplaceholder.typicode.com/todos',{
       title,
       completed: false
     })
-      .then(res => this.setState({todos: [...this.state.todos, res.data]})) //spread operator
+      .then(res => {
+        res.data.id = uuidv4();
+        this.setState({todos: [...this.state.todos, res.data]}); //spread operator
+      })
       .catch(err => console.log(err))
-    
+      
   }
 
   render() {
