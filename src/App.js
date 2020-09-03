@@ -12,17 +12,17 @@ export class App extends Component {
     todos: [
         {
             id: 1,
-            title: 'Take out the trash',
+            title: 'Jump off my airplane',
             completed: false
         },
         {
             id: 2,
-            title: 'Dinner with wife',
+            title: "Mixing on Tokyo's tallest skyrocker",
             completed: false
         },
         {
             id: 3,
-            title: 'Meeting with boss',
+            title: "Buy Mauricio's Island",
             completed: false
         },
     ]
