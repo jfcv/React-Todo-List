@@ -40,14 +40,13 @@ export class App extends Component {
 
   addTodo = (title) => {
 
-    const newTodo = {
-      id: this.state.todos.length + 1,
+    axios.post('https://jsonplaceholder.typicode.com/todos?_limit=5',{
       title,
       completed: false
-    }
-
-    this.setState({todos: [...this.state.todos, newTodo]}) //spread operator
-
+    })
+      .then(res => this.setState({todos: [...this.state.todos, res.data]})) //spread operator
+      .catch(err => console.log(err))
+    
   }
 
   render() {
